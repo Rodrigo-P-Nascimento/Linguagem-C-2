@@ -6,13 +6,19 @@ using namespace std;
 
 int main(){
 
-    char palavra[] = "oi";
+    char palavra[] = "bolo";
+    int tamArray = sizeof(palavra);
+    char auxilioPalavra[tamArray];
     int i, tentativas = 5;
     int acertos=0, palavraCompleta=0;
     char letra;
 
+    for(i=0;i < tam; i++){
+            cout << auxilioPalavra[i];
+        }
+
     printf("Bem-vindo ao nosso pequeno jogo da forca.\n");
-    printf("A palavra ja foi decidida, ela contem %d letras.\n", sizeof(palavra)-1);
+    printf("A palavra ja foi decidida, ela contem %d letras.\n", int(sizeof(palavra)-1));
 
     while(1){
         printf("\nNumero de tentativas: %d\n", tentativas);
@@ -20,9 +26,10 @@ int main(){
         cin >> letra;
 
         for(i=0; i < sizeof(palavra); i++){
-            if(letra == palavra[i]){
+            if(letra == palavra[i] && letra != auxilioPalavra[i]){
                 acertos++;
                 palavraCompleta++;
+                auxilioPalavra[i] = letra;
             }
         }
         if(acertos > 0){
@@ -30,6 +37,9 @@ int main(){
         }else{
             printf("Palpite ERRADO!\n");
             tentativas--;
+        }
+        for(i=0;i < sizeof(auxilioPalavra); i++){
+            cout << auxilioPalavra[i];
         }
         acertos = 0;
         if(tentativas == 0){
