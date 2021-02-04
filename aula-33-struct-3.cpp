@@ -1,8 +1,6 @@
 #include <iostream>
 #include <stdio.h>
 
-//como criar metodos nas struct
-
 using namespace std;
 
 struct Carro{
@@ -42,18 +40,18 @@ struct Carro{
 
 int main(){
 
+    Carro *carros= new Carro[3];
     Carro carro1, carro2, carro3;
 
-    carro1.insere("Monza", "Preto", 200, 250);
-    carro1.mudaVel(-138);
-    carro1.mostra();
+    carros[0]=carro1; carros[1]=carro2; carros[2]=carro3;
 
-    carro2.insere("Gol Quadrado", "Azul", 300, 260);
-    carro2.mostra();
+    carros[0].insere("Marquinhos", "Vermelho", 344, 370);
+    carros[1].insere("Fuscao", "Preto", 999, 999);
+    carros[2].insere("Compacto", "Cinza Claro", 200, 250);
 
-    carro3.insere("Fuscao", "Preto como o aco", 9999, 9999);
-    carro3.mostra();
-
+    for(int i=0;i < 3;i++){
+        carros[i].mostra();
+    }
 
 	return 0;
 }
