@@ -17,7 +17,5 @@ int main(){
     somador();
     somador();
 
-
-
     return 0;
 }
