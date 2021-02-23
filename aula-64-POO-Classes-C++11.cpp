@@ -24,6 +24,7 @@ int main(){
 
     unique_ptr<Carro>c1(new Carro{"Fuscao", 90});
     cout << c1->nome << " - " <<c1->potencia<< " - "<< c1->velMax<< endl;
+
     Carro c2{"Marquinhos", 999};
     cout <<c2.nome<<" - "<<c2.potencia<<" - "<<c2.velMax<<endl;
 
