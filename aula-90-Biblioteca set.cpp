@@ -16,9 +16,9 @@ int main(){
     cout << endl;
 
     if(st1.count(5) != 0){
-        cout << "Esta no conteiner\n";
+        cout << "5-Esta no conteiner\n";
     }else{
-        cout << "Nao esta no conteiner\n";
+        cout << "5-Nao esta no conteiner\n";
     }
 
 
