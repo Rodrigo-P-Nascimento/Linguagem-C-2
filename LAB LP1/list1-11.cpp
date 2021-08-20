@@ -13,6 +13,7 @@ int main(){
     int candA=0, candB=0, candC=0;
     int nulos=0, brancos=0, contTotal=0;
     int voto=0;
+    float votosValidos;
 
     while(voto!=-1){
         cout << "Vote - |1000| - Candidadto A\nVote - |2000| - Candidadto B\nVote - |3000| - Candidadto C" << endl;
@@ -51,16 +52,16 @@ int main(){
         }
     }
 
-    float votosValidos = ((candA + candB + candC) * contTotal) / 100; 
+    votosValidos = ((candA + candB + candC) * 100) / contTotal; 
 
     cout << fixed << setprecision(2);
     cout << "Numero total de eleitores: " << contTotal << endl;
     cout << "Votos validos: " << votosValidos << "%" << endl;
-    cout << "Votos do candidato A: " << candA << " [" << (candA*contTotal)/100 << "%]" << endl;
-    cout << "Votos do candidato B: " << candB << " [" << (candB*contTotal)/100 << "%]" << endl;
-    cout << "Votos do candidato C: " << candC << " [" << (candC*contTotal)/100 << "%]" << endl;
-    cout << "Votos em branco: " << brancos << " [" << (brancos*contTotal)/100 << "%]" << endl;
-    cout << "Votos nulos: " << nulos << " [" << (nulos*contTotal)/100 << "%]" << endl;
+    cout << "Votos do candidato A: " << candA << " [" << (candA*100)/contTotal << "%]" << endl;
+    cout << "Votos do candidato B: " << candB << " [" << (candB*100)/contTotal << "%]" << endl;
+    cout << "Votos do candidato C: " << candC << " [" << (candC*100)/contTotal << "%]" << endl;
+    cout << "Votos em branco: " << brancos << " [" << (brancos*100)/contTotal << "%]" << endl;
+    cout << "Votos nulos: " << nulos << " [" << (nulos*100)/contTotal << "%]" << endl;
 
     return 0;
 }
