@@ -6,6 +6,7 @@ using namespace std;
 int main(){
 
     vector<int>num; //nao precisa dimencionar o tamanho do vector, mas pode-se sim, e.g num(5)
+    
     int tam, i, numero;
 
     num.push_back(10);
