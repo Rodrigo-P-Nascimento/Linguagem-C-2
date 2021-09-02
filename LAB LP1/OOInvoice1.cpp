@@ -6,14 +6,13 @@ using namespace std;
 class Invoice{
 
 public:
-    Invoice();
-
+   
     int numero;
     string descricao;
     int quant;
     float preco;
 
-    //Invoice();//Por algum motivo tive que comentar essa linha, acho que tudo no mesmo arquivo deve dar problema em algumas declarações...
+    Invoice();
     float getInvoiceAmount(float preco, int quant);
 
 };
