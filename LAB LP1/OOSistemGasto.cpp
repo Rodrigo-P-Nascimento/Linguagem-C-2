@@ -46,12 +46,12 @@ private:
 public:
     ControledeGastos();
     
-    void setDespesa(Despensa d, int pos);
+    void setDespesa(Despensa *d, int pos);
 };
 
 ControledeGastos::ControledeGastos(){
 }
-void setDespesa(Despensa d, int pos){
+void setDespesa(Despensa *d, int pos){
     d[pos];
 }
 
