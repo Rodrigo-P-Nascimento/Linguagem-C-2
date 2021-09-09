@@ -1,9 +1,8 @@
 #pragma once
+#include <iostream>
 
 class Cliente{
 
-private:
-    
 public:
     //Construtores
     Cliente();
@@ -15,6 +14,10 @@ public:
     int codigo;
     std::string nome;
 };
+
+
+
+
 
 
 

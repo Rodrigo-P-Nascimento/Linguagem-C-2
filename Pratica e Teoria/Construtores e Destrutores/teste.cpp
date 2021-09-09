@@ -14,6 +14,5 @@ int main(){
     cout << c2.codigo << " - " << c2.nome << endl;
     cout << c3.codigo << " - " << c3.nome << endl;
 
-
     return 0;
 }
