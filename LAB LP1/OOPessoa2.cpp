@@ -18,6 +18,7 @@ public:
     string getTelefone();
     int getIdade();
     //Constutores
+    OOPessoa1();
     OOPessoa1(string nome);
     OOPessoa1(string nome, string telefone, int idade);
 };
@@ -30,6 +31,16 @@ void OOPessoa1::setTelefone(string telefone){
 void OOPessoa1::setIdade(int idade){
     this->idade = idade;
 }
+string OOPessoa1::getNome(){
+    return this->nome;
+}
+string OOPessoa1::getTelefone(){
+    return this->telefone;
+}
+int OOPessoa1::getIdade(){
+    return this->idade;
+}
+OOPessoa1::OOPessoa1(){}
 OOPessoa1::OOPessoa1(string nome){
     setNome(nome);
 }
@@ -47,17 +58,18 @@ int main(){
 
     cin >> n;
 
-    OOPessoa1 agenda[n]; //Iniciei logo os objetos com um valor padrão
+    OOPessoa1 agenda[n];
 
     for(i=0; i < n; i++){
         cin.ignore();
         getline(cin, name);
-        getline(cin, cellphone);
         cin >> age;
+        cin.ignore();
+        getline(cin, cellphone);
         agenda[i] = OOPessoa1(name, cellphone, age);
     }
-
-    cin >> nomeProcurado;
+    
+    cin >> nomeProcurado;   
 
     for(i=0; i < n; i++){
         if(agenda[i].getNome().find(nomeProcurado)){
