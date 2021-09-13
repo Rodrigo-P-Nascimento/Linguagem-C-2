@@ -40,7 +40,9 @@ string OOPessoa1::getTelefone(){
 int OOPessoa1::getIdade(){
     return this->idade;
 }
-OOPessoa1::OOPessoa1(){}
+OOPessoa1::OOPessoa1(){
+
+}
 OOPessoa1::OOPessoa1(string nome){
     setNome(nome);
 }
@@ -58,7 +60,7 @@ int main(){
 
     cin >> n;
 
-    OOPessoa1 agenda[n];
+    OOPessoa1 *agenda;
 
     for(i=0; i < n; i++){
         cin.ignore();
