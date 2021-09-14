@@ -50,29 +50,38 @@ OOPessoa1::OOPessoa1(string nome, string telefone, int idade){
     setNome(nome);
     setTelefone(telefone);
     setIdade(idade);
-}
+}//end Class OOPessoa2
 
 int main(){
 
     int num;
-    int age, i;
-    string name, phone;
+    int age, i, cont=0;
+    string name, phone, nomeProcurado;
     
     cin >> num;
+    cin.ignore();
 
     OOPessoa1 agenda[num];
 
     for(i=0; i < num; i++){
-        cin.ignore();
         getline(cin, name);
         cin >> age;
         cin.ignore();
         getline(cin, phone);
 
-        agenda[i].setNome(name);
-        agenda[i].setIdade(age);
-        agenda[i].setTelefone(phone);
+        agenda[i] = OOPessoa1(name, phone, age);
     }
-    
+
+    getline(cin, nomeProcurado);
+  
+    for(i=0; i < num; i++){
+        if(agenda[i].getNome().find(nomeProcurado) != string::npos){
+            cont = 1;
+            cout << agenda[i].getNome() << ", " << agenda[i].getIdade() << ", " << agenda[i].getTelefone() << endl;
+        }
+        if(i == (num-1) && cont == 0){
+            cout <<  "Pessoa não encontrada" << endl;
+        }
+    }
     return 0;   
-}
+}//end main()
