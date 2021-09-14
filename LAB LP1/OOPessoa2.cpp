@@ -17,7 +17,7 @@ public:
     string getNome();
     string getTelefone();
     int getIdade();
-    //Constutores
+    //Construtores
     OOPessoa1();
     OOPessoa1(string nome);
     OOPessoa1(string nome, string telefone, int idade);
@@ -54,34 +54,25 @@ OOPessoa1::OOPessoa1(string nome, string telefone, int idade){
 
 int main(){
 
-    int n, i, cont=0;
-    string name, cellphone, nomeProcurado;
-    int age;
+    int num;
+    int age, i;
+    string name, phone;
+    
+    cin >> num;
 
-    cin >> n;
+    OOPessoa1 agenda[num];
 
-    OOPessoa1 *agenda;
-
-    for(i=0; i < n; i++){
+    for(i=0; i < num; i++){
         cin.ignore();
         getline(cin, name);
         cin >> age;
         cin.ignore();
-        getline(cin, cellphone);
-        agenda[i] = OOPessoa1(name, cellphone, age);
+        getline(cin, phone);
+
+        agenda[i].setNome(name);
+        agenda[i].setIdade(age);
+        agenda[i].setTelefone(phone);
     }
     
-    cin >> nomeProcurado;   
-
-    for(i=0; i < n; i++){
-        if(agenda[i].getNome().find(nomeProcurado)){
-            cont = 1;
-            cout << agenda[i].getNome() << ", " << agenda[i].getIdade() << ", " << agenda[i].getTelefone() << endl;
-        }
-        if(i == (n-1) && cont == 0){
-            cout <<  "Pessoa não encontrada" << endl;
-        }
-    }
-
     return 0;   
 }
