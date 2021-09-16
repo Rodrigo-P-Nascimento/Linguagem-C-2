@@ -3,64 +3,66 @@
 
 using namespace std;
 
-class Despensa{
+class Despesa{
 private:
     string nome;
     float valor;
     string tipoDeGasto;
 public:
-    Despensa();
-
-    //Conjuntos de seters
-    void setNome(string nm){
-        nome = nm;
-    }
-    void setTipoDeGasto(string tc){
-        nome = tc;
-    }
-    void setValor(float vl){
-        valor = vl;
-    }
-
-    //Conjunto de geters
-    string getNome(){
-        return nome;
-    }
-
-    string getTipo(){
-        return tipoDeGasto;
-    }
-
-    float getValor(){
-        return valor;
-    }
+    //Seteres
+    void setNome(string nome);
+    void setValor(float valor);
+    void settipoDeGasto(string tipoDeGasto);
+    //Geteres
+    string getNome();
+    float getValor();
+    string gettipoDeGasto();
+    //Metodos
+    Despesa();
 };
-
-Despensa::Despensa(){
+//___ set ___
+void Despesa::setNome(string nome){
+    this->nome = nome;
+}
+void Despesa::setValor(float valor){
+    this->valor = valor;
+}
+void Despesa::settipoDeGasto(string tipoDeGasto){
+    this->tipoDeGasto = tipoDeGasto;
+}
+//___ get ___
+string Despesa::getNome(){
+    return nome;
+}
+float Despesa::getValor(){
+    return valor;
+}
+string Despesa::gettipoDeGasto(){
+    return tipoDeGasto;
+}
+//___ metodos ___
+Despesa::Despesa(){
     valor = 0;
 }
 
-class ControledeGastos{
+class ControleDeGastos{
 private:
-    Despensa despesas[100];
+    Despesa despesas[100];
 public:
-    ControledeGastos();
-    
-    void setDespesa(Despensa *d, int pos);
+    void setDespesa(Despesa d, int pos);
+    Despesa getDespesa(int pos);
+    float calculaTotalDeDespesas();
+    float calculaTotalDeDespesas(string tipo);
+    bool existeDespesaDoTipo(string tipo);
 };
-
-ControledeGastos::ControledeGastos(){
+//___ Metodos ___
+void ControleDeGastos::setDespesa(Despesa d, int pos){
+    
 }
-void setDespesa(Despensa *d, int pos){
-    d[pos];
-}
-
-
 
 int main(){
 
-    
-
+    ControleDeGastos despe[100];
 
 
     return 0;
