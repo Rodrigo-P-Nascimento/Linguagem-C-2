@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <stdio.h> //chamei somente para usar a função sprintf
 
 using namespace std;
 
@@ -15,9 +15,9 @@ public:
     void setMes(int mes);
     void setAno(int ano);
     //geteres
-    int getDia();
-    int getMes();
-    int getAno();
+    string getDia();
+    string getMes();
+    string getAno();
     //Metodos
     int getDaysMonth(int mes);
     void avancarDia();
@@ -33,20 +33,23 @@ void Data3::setAno(int ano){
     this->ano = ano;
 }
 // ___ Get ___
-int Data3::getDia(){
-    return dia;
+string Data3::getDia(){
+    char d[4];
+    sprintf(d, "%02d", dia);
+    return d;
 }
-int Data3::getMes(){
-    return mes;
+string Data3::getMes(){
+    char m[4];
+    sprintf(m, "%02d", mes);
+    return m;
 }
-int Data3::getAno(){
-    return ano;
+string Data3::getAno(){
+    char a[6];
+    sprintf(a, "%04d", ano);
+    return a;
 }
 // ___ Metodos ___
 int Data3::getDaysMonth(int mes){
-    if(mes < 1 || mes > 12){
-        return 0;
-    }else{
         switch (mes){
         case 1:
             return 31;
@@ -73,18 +76,18 @@ int Data3::getDaysMonth(int mes){
         case 12:
             return 31;
         default:
-            break;
-        }
+            return 31;
+        
     }
 }
 Data3::Data3(){
 }
 Data3::Data3(int dia, int mes, int ano){
-    if(ano < 1){
-        cout << "Atributo ano Inválido" << endl;
-        this->ano = 1; 
+    if(dia > 0 && dia <= getDaysMonth(mes)){
+        this->dia = dia;
     }else{
-        this->ano = ano;
+        cout << "Atributo dia Inválido" << endl;
+        this->dia = 1;
     }
     if(mes < 1 || mes > 12){
         cout << "Atributo mês Inválido" << endl;
@@ -92,18 +95,41 @@ Data3::Data3(int dia, int mes, int ano){
     }else{
         this->mes = mes;
     }
-    if(dia > 0 && dia <= getDaysMonth(mes)){
-        this->dia = dia;
+    if(ano < 1){
+        cout << "Atributo ano Inválido" << endl;
+        this->ano = 1; 
     }else{
-        cout << "Atributo dia Inválido" << endl;
+        this->ano = ano;
     }
 }
+void Data3::avancarDia(){
+    if((dia+1) <= getDaysMonth(mes)){
+        dia++;
+    }else{
+        dia = 1;
+        if((mes+1) <= 12){
+            mes++;
+        }else{
+            mes = 1;
+            ano++;
+        }
+    }
+}//end Class Data3
 
 int main(){
 
+    int day, month, year, num;
 
+    cin >> day >> month >> year >> num;
 
+    Data3 data = Data3(day, month, year);
+
+    for(int i=0; i < num; i++){
+        data.avancarDia();
+    }
+
+    cout << data.getDia() << "/" << data.getMes() << "/" << data.getAno() << endl;
 
     return 0;
-}
+}//end main()
 
