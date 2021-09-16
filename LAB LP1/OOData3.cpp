@@ -22,6 +22,7 @@ public:
     int getDaysMonth(int mes);
     void avancarDia();
 };
+// ___ Set ___
 void Data3::setDia(int dia){
     this->dia = dia;
 }
@@ -31,6 +32,17 @@ void Data3::setMes(int mes){
 void Data3::setAno(int ano){
     this->ano = ano;
 }
+// ___ Get ___
+int Data3::getDia(){
+    return dia;
+}
+int Data3::getMes(){
+    return mes;
+}
+int Data3::getAno(){
+    return ano;
+}
+// ___ Metodos ___
 int Data3::getDaysMonth(int mes){
     if(mes < 1 || mes > 12){
         return 0;
@@ -68,12 +80,23 @@ int Data3::getDaysMonth(int mes){
 Data3::Data3(){
 }
 Data3::Data3(int dia, int mes, int ano){
-    if(dia < 1 ){
-        this->dia = 1;
+    if(ano < 1){
+        cout << "Atributo ano Inválido" << endl;
+        this->ano = 1; 
     }else{
-        this->dia = dia;
+        this->ano = ano;
     }
-    //if(mes < 1);
+    if(mes < 1 || mes > 12){
+        cout << "Atributo mês Inválido" << endl;
+        this->mes = 1;
+    }else{
+        this->mes = mes;
+    }
+    if(dia > 0 && dia <= getDaysMonth(mes)){
+        this->dia = dia;
+    }else{
+        cout << "Atributo dia Inválido" << endl;
+    }
 }
 
 int main(){
