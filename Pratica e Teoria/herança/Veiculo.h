@@ -13,6 +13,7 @@ protected:
 
 public:
 	Veiculo(std::string n, std::string c, int a);
+	Veiculo();
 	void acelerar();
 	void frear();
 

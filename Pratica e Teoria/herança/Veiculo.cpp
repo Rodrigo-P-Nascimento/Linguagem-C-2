@@ -1,5 +1,9 @@
-#include "Veiculo.hpp"  
-	
+#include "Veiculo.h"  
+#include <iostream>
+
+Veiculo::Veiculo(){
+}
+
 Veiculo::Veiculo(std::string n, std::string c, int a){
     nome = n;
     cor = c;
