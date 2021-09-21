@@ -1,5 +1,4 @@
-#ifndef CONVERSIVEL_H
-#define CONVERSIVEL_H
+#pragma once
 #include <iostream>
 #include "Veiculo.h"
 	
@@ -12,4 +11,4 @@ public:
 	void descerTeto();
 
 };
-#endif
+

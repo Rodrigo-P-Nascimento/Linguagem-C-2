@@ -1,8 +1,4 @@
 #include "Veiculo.h"  
-#include <iostream>
-
-Veiculo::Veiculo(){
-}
 
 Veiculo::Veiculo(std::string n, std::string c, int a){
     nome = n;
@@ -10,6 +6,7 @@ Veiculo::Veiculo(std::string n, std::string c, int a){
     ano = a;
     velocidade = 0.0;
 }
+
 void Veiculo::acelerar(){
     velocidade++;
 }

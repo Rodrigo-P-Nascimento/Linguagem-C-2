@@ -1,6 +1,4 @@
-#ifndef VEICULO_H
-#define VEICULO_H
-
+#pragma once
 #include <iostream>
 
 class Veiculo{
@@ -13,9 +11,8 @@ protected:
 
 public:
 	Veiculo(std::string n, std::string c, int a);
-	Veiculo();
 	void acelerar();
 	void frear();
 
 };
-#endif
+
