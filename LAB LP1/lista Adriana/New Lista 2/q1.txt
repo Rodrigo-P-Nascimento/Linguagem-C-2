@@ -1,0 +1,15 @@
+Qual a diferença entre objetos e classes? Use um exemplo para ilustrar sua resposta.
+
+Classes e objetos andam juntos, uma classe nada mais é do que um "molde" da qual objetos podem ser criados.
+Uma classe tem atributos e metódos definidos pelo programador, os objetos são instâncias em memória de uma classe.
+
+Com um classe base podemos ter varios objetos do mesmo tipo mas eles ainda são unicos, mesmo sendo criados apartir do mesmo molde.
+
+Classe Veiculo;
+    cor;
+    data de fabricação;
+    preço;
+
+Objeto Veiculo Monza("Preta", 19/09/2000, 12.000);
+Objeto Veiculo Fusca("Azul", 10/10/1980, 10.000);
+Objeto Veiculo Celta("Vermelho", 01/12/2010, 22.000);

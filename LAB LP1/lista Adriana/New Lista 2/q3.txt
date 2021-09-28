@@ -1,0 +1,7 @@
+O que é encapsulamento? Em que situação pode ser empregado? Use exemplos para ilustrar sua resposta.
+
+É a restrinção de atributos e metódos de uma classe, um usuario não precisar saber toda a implementação do programa, mas sim apenas aquilo que é necessario para ele conseguir usar o programa de forma correta.
+
+Além disso, o encapsulamento serve também para proteger certos dados, a exemplo o saldo de uma conta bancaria, na qual se não fosse protegida devidamente alguem poderia alterar os valores do seu saldo, o que geraria varios problemas.
+
+E por fim, serve também para definir niveis de acesso a dados em uma classe, da quais temos: public, private e protected.

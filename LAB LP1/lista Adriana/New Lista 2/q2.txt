@@ -1,0 +1,8 @@
+O que são construtores e destrutores? Use exemplos para ilustrar sua resposta.
+
+No momento da instanciação de um novo objeto os construtores são chamados, eles são metodos especias do tipo void e com o mesmo nome da classe, eles podem ou não fazer nada, um exemplo é iniciar um objeto com valores padrões como a cor, tamanho e fonte de uma janela de um programa padrão.
+
+Já os destrutores são responsaveis por liberar o espaço alocado na memoria do computor por um objeto, mas só é preciso usa-los de formar explicita se o objeto for declarado de forma dinamica, usando o new.
+
+Construtores > Alocam memoria para um objeto;
+Destrutores  > Liberam essa memoria alocada por um objeto;
