@@ -40,11 +40,16 @@ private:
     double salario;
 public:
     Assalariado(double salario);
+    Assalariado();
     virtual double calculaSalario();
 };
 
 double Assalariado::calculaSalario(){
     return salario;
+}
+
+Assalariado::Assalariado()
+    : Funcionario(){
 }
 
 Assalariado::Assalariado(double salario)
@@ -58,6 +63,7 @@ private:
     double horasTrabalhadas;
 public:
     virtual double calculaSalario();
+    Horista();
     Horista(double salarioPorHora, double horasTrabalhadas);
 };
 
@@ -72,6 +78,10 @@ double Horista::calculaSalario(){
     return (pagamento*4);
 }
 
+Horista::Horista() 
+    : Funcionario(){
+}
+
 Horista::Horista(double salarioPorHora, double horasTrabalhadas)
     : Funcionario(){
     this->salarioPorHora = salarioPorHora;
@@ -83,12 +93,17 @@ private:
     double vendasMensais;
     double percentualComissao;
 public:
+    Comissionado();
     Comissionado(double vendasMensais, double percentualComissao);
     virtual double calculaSalario();
 };
 
 double Comissionado::calculaSalario(){
     return (vendasMensais * percentualComissao);
+}
+
+Comissionado::Comissionado()
+    : Funcionario(){
 }
 
 Comissionado::Comissionado(double vendasMensais, double percentualComissao) 
@@ -99,23 +114,100 @@ Comissionado::Comissionado(double vendasMensais, double percentualComissao)
 
 class SistemaGerenciaFolha{
 private:
-    //Funcionario funcionario[];
+    Funcionario *func;
+    double orcamento;
+    int cont;
 public:
-    void setFuncionarios();
+    void setFuncionarios(Funcionario *func);
     double calculaValorTotalFolha();
     double consultaSalarioFuncionario(string nome);
 
-    SistemaGerenciaFolha();
+    SistemaGerenciaFolha(double orcamento);
 };
 
-SistemaGerenciaFolha::SistemaGerenciaFolha(){
+void SistemaGerenciaFolha::setFuncionarios(Funcionario *func){
+    this->func[cont] = *func;
+    cont++;
+}
+double SistemaGerenciaFolha::calculaValorTotalFolha(){
+    double total=0;
+
+    total += func[0].calculaSalario();
+    total += func[1].calculaSalario();
+    total += func[2].calculaSalario();
+
+    if(total > orcamento){
+        throw "OrcamentoEstouradoException";
+    }else{
+        return total;
+    }
+}
+double SistemaGerenciaFolha::consultaSalarioFuncionario(string nome){
+    for(int i=0; i < 3; i++){
+        if(func[i].getNome() == nome){
+            return func[i].calculaSalario();
+        }
+    }
+    throw "FuncionarioNaoExisteException";
 }
 
-
+SistemaGerenciaFolha::SistemaGerenciaFolha(double orcamento){
+    this->orcamento = orcamento;
+    cont=0;
+}
 
 int main(){
 
+    double orcamentoMax, salario, porcentagem, vendasSemanais;
+    int numero, horasTra, salarioHora;
+    string nome, name2, name3, name4;
 
+    cin >> orcamentoMax;
 
+    SistemaGerenciaFolha  SGF = SistemaGerenciaFolha(orcamentoMax);
+    Funcionario *ass;
+    Funcionario *hor;
+    Funcionario *cms;
+
+    cin.ignore();
+    getline(cin, nome);
+    cin >> numero >> salario;
+    ass = new Assalariado(salario);
+    ass->setNome(nome);
+    ass->setMatricula(numero);
+
+    cin.ignore();
+    getline(cin, nome);
+    cin >> numero >> salarioHora >> horasTra;
+    hor = new Horista(salarioHora, horasTra);
+    hor->setNome(nome);
+    hor->setMatricula(numero);
+
+    cin.ignore();
+    getline(cin, nome);
+    cin >> numero >> vendasSemanais >> porcentagem;
+    cms = new Comissionado(vendasSemanais, porcentagem);
+    cms->setNome(nome);
+    cms->setMatricula(numero);
+
+    SGF.setFuncionarios(ass);
+    SGF.setFuncionarios(hor);
+    SGF.setFuncionarios(cms);
+
+    cin.ignore();
+    getline(cin, name2);
+    getline(cin, name3);
+    getline(cin, name4);
+
+    try{
+        SGF.consultaSalarioFuncionario(name2);
+        SGF.consultaSalarioFuncionario(name3);
+        SGF.consultaSalarioFuncionario(name4);
+    }
+    catch(const char *e)
+    {
+        cout << e << '\n';
+    }
+    
     return 0;
 }
