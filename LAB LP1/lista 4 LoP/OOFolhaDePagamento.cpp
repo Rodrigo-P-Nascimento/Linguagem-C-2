@@ -122,11 +122,12 @@ public:
     double calculaValorTotalFolha();
     double consultaSalarioFuncionario(string nome);
 
+    SistemaGerenciaFolha();
     SistemaGerenciaFolha(double orcamento);
 };
 
 void SistemaGerenciaFolha::setFuncionarios(Funcionario *func){
-    this->func[cont] = *func;
+    this->func = func;
     cont++;
 }
 double SistemaGerenciaFolha::calculaValorTotalFolha(){
@@ -155,7 +156,8 @@ SistemaGerenciaFolha::SistemaGerenciaFolha(double orcamento){
     this->orcamento = orcamento;
     cont=0;
 }
-
+SistemaGerenciaFolha::SistemaGerenciaFolha(){
+}
 int main(){
 
     double orcamentoMax, salario, porcentagem, vendasSemanais;
@@ -190,7 +192,9 @@ int main(){
     cms->setNome(nome);
     cms->setMatricula(numero);
 
+    
     SGF.setFuncionarios(ass);
+    /*
     SGF.setFuncionarios(hor);
     SGF.setFuncionarios(cms);
 
@@ -208,6 +212,6 @@ int main(){
     {
         cout << e << '\n';
     }
-    
+    */
     return 0;
 }
