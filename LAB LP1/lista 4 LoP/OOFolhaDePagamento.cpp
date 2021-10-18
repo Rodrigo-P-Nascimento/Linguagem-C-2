@@ -3,7 +3,7 @@
 using namespace std;
 
 class Funcionario{
-private:
+protected:
     string nome;
     int matricula;
 public:
@@ -36,7 +36,7 @@ Funcionario::Funcionario(){
 }//End class Funcionario
 
 class Assalariado : public Funcionario{
-private:
+protected:
     double salario;
 public:
     Assalariado(double salario);
@@ -58,7 +58,7 @@ Assalariado::Assalariado(double salario)
 }//End class Assalariado
 
 class Horista : public Funcionario{
-private:
+protected:
     double salarioPorHora;
     double horasTrabalhadas;
 public:
@@ -89,7 +89,7 @@ Horista::Horista(double salarioPorHora, double horasTrabalhadas)
 }//End class Horista
 
 class Comissionado : public Funcionario{
-private:
+protected:
     double vendasMensais;
     double percentualComissao;
 public:
@@ -113,7 +113,7 @@ Comissionado::Comissionado(double vendasMensais, double percentualComissao)
 }//End class Comissionado
 
 class SistemaGerenciaFolha{
-private:
+protected:
     Funcionario *func;
     double orcamento;
     int cont;
