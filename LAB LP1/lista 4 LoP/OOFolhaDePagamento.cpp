@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <string>
 
 using namespace std;
 
@@ -114,12 +116,13 @@ Comissionado::Comissionado(double vendasMensais, double percentualComissao)
 
 class SistemaGerenciaFolha{
 protected:
-    Funcionario *func;
+    //Funcionario *func;
+    vector<Funcionario*> func;
     double orcamento;
     int cont;
 public:
     void setFuncionarios(Funcionario *func);
-    double calculaValorTotalFolha();
+    int calculaValorTotalFolha();
     double consultaSalarioFuncionario(string nome);
 
     SistemaGerenciaFolha();
@@ -127,29 +130,33 @@ public:
 };
 
 void SistemaGerenciaFolha::setFuncionarios(Funcionario *func){
-    this->func = func;
-    cont++;
+    this->func.push_back(func);
 }
-double SistemaGerenciaFolha::calculaValorTotalFolha(){
-    double total=0;
-
-    total += func[0].calculaSalario();
-    total += func[1].calculaSalario();
-    total += func[2].calculaSalario();
+int SistemaGerenciaFolha::calculaValorTotalFolha(){
+    int total=0;
+    
+    for(auto& it : func){
+        total+= it->calculaSalario();
+    }
+    string nam1 = "OrcamentoEstouradoException ";
+    nam1 += std::to_string(total);
 
     if(total > orcamento){
-        throw "OrcamentoEstouradoException";
+        throw nam1;
     }else{
         return total;
     }
 }
 double SistemaGerenciaFolha::consultaSalarioFuncionario(string nome){
-    for(int i=0; i < 3; i++){
-        if(func[i].getNome() == nome){
-            return func[i].calculaSalario();
+    for(auto& it : func){
+        if(it->getNome() == nome){
+            return it->calculaSalario();
         }
     }
-    throw "FuncionarioNaoExisteException";
+    string num1 = "FuncionarioNaoExisteException ";
+    num1 += nome;
+
+    throw (num1);
 }
 
 SistemaGerenciaFolha::SistemaGerenciaFolha(double orcamento){
@@ -192,9 +199,7 @@ int main(){
     cms->setNome(nome);
     cms->setMatricula(numero);
 
-    
     SGF.setFuncionarios(ass);
-    /*
     SGF.setFuncionarios(hor);
     SGF.setFuncionarios(cms);
 
@@ -204,14 +209,26 @@ int main(){
     getline(cin, name4);
 
     try{
-        SGF.consultaSalarioFuncionario(name2);
-        SGF.consultaSalarioFuncionario(name3);
-        SGF.consultaSalarioFuncionario(name4);
-    }
-    catch(const char *e)
-    {
+        cout << SGF.consultaSalarioFuncionario(name2) << endl;
+    }catch(string e){
         cout << e << '\n';
     }
-    */
+    try{
+        cout << SGF.consultaSalarioFuncionario(name3) << endl;
+    }catch(string e){
+        cout << e << '\n';
+    }
+    try{
+        cout << SGF.consultaSalarioFuncionario(name4) << endl;
+    }catch(string e){
+        cout << e << '\n';
+    }
+    try{
+        cout << SGF.calculaValorTotalFolha() << endl;
+    }
+    catch(string e){
+        cout << e << '\n';
+    }
+   
     return 0;
 }
