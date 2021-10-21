@@ -72,24 +72,26 @@ public:
     virtual void lerAtributos();
     //Destrutor e Construtor
     Casa();
-    Casa(string nome);
     virtual ~Casa();
 };
 
 void Casa::exibeAtributos(){
-    
+    cout << nome << " para " << disponibilidade << ". " << numPavimentos << " pavimentos, " << numQuartos << " quartos, " << areaTerr << "m2 de área de terreno e " << areaConst << "m2 de área construída. R$ " << valor << "." << endl;
 }
 void Casa::lerAtributos(){
-    
+    cin >> valor;
+    cin.ignore();
+    getline(cin, disponibilidade);
+    cin >> numPavimentos;
+    cin >> numQuartos;
+    cin >> areaTerr;
+    cin >> areaConst;
 }
 Casa::Casa()   
     : Imovel(){
+    this->nome = "Casa";
+    this->tipo = 1;
 }
-Casa::Casa(string nome)   
-    : Imovel(){
-    this->nome = nome;
-}
-
 Casa::~Casa(){
     cout << "Deletando Casa" << endl;
 }
@@ -97,7 +99,9 @@ Casa::~Casa(){
 
 int main(){
 
+    Casa c1 = Casa();
 
+    cout << "opa" << endl;
 
     return 0;
 }
