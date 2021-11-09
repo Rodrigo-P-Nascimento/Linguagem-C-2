@@ -2,7 +2,7 @@
 #include <vector>
 
 using namespace std;
-
+/*
 class Insumo{
 protected:
     string nome;
@@ -110,12 +110,12 @@ Local::~Local(){
     insumosVec.clear();
     //for(auto it=insumosVec.begin(); it != insumosVec.end(); it++){
 }
-
+*/
 int main(){
 
-    Local lock;
+    //Local lock;
+    cout << "Ola cara " << endl;
 
-    
 
     return 0;
 }
