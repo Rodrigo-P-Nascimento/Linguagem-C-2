@@ -2,7 +2,7 @@
 #include <vector>
 
 using namespace std;
-/*
+
 class Insumo{
 protected:
     string nome;
@@ -53,7 +53,7 @@ public:
     ~Medicamento();
 };
 
-Medicamento::Medicamento() 
+Medicamento::Medicamento()
     : Insumo()
 {
 }
@@ -71,7 +71,7 @@ public:
     ~EPI();
 };
 
-EPI::EPI() 
+EPI::EPI()
     : Insumo()
 {
 }
@@ -110,12 +110,11 @@ Local::~Local(){
     insumosVec.clear();
     //for(auto it=insumosVec.begin(); it != insumosVec.end(); it++){
 }
-*/
+
 int main(){
 
     //Local lock;
     cout << "Ola cara " << endl;
-
 
     return 0;
 }
