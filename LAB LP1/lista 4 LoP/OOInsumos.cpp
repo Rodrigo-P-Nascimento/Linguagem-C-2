@@ -168,7 +168,12 @@ int main(){
 
     getline(cin, nome);
     cin >> quantidade;
-
+    cin >> valorUnitario;
+    cin.ignore();
+    getline(cin, dtVencimento);
+    getline(cin, nomeFabricante);
+    cin >> tipoInsumo;
+    
 
 
 
