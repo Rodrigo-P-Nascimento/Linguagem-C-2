@@ -13,11 +13,21 @@ protected:
     int tipoInsumo;
 public:
     Insumo();
+    Insumo(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, int tipoInsumo);
     ~Insumo();
 };
 
 Insumo::Insumo()
 {
+}
+
+Insumo::Insumo(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, int tipoInsumo){
+    this->nome = nome;
+    this->quantidade = quantidade;
+    this->valorUnitario = valorUnitario;
+    this->dtVencimento = dtVencimento;
+    this->nomeFabricante = nomeFabricante;
+    this->tipoInsumo = tipoInsumo;
 }
 
 Insumo::~Insumo(){
@@ -30,13 +40,21 @@ private:
     int quantDoses;
     int intervalo;
 public:
+    Vacina(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, int tipoInsumo,int tipo, int quantDoses, int intervalo);
     Vacina();
     ~Vacina();
 };
 
-Vacina::Vacina()
-    : Insumo()
+Vacina::Vacina(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, int tipoInsumo,int tipo, int quantDoses, int intervalo)
+    : Insumo(nome,quantidade,valorUnitario,dtVencimento,nomeFabricante,tipoInsumo)
 {
+    this->tipo = tipo;
+    this->quantDoses = quantidade;
+    this->intervalo = intervalo;
+}
+
+Vacina::Vacina()
+    : Insumo(){  
 }
 
 Vacina::~Vacina(){
@@ -49,9 +67,18 @@ private:
     string administracao;
     string disponibilizacao;
 public:
+    Medicamento(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, int tipoInsumo,string dosagem, string administracao, string disponibilizacao);
     Medicamento();
     ~Medicamento();
 };
+
+Medicamento::Medicamento(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, int tipoInsumo,string dosagem, string administracao, string disponibilizacao)
+    : Insumo(nome,quantidade,valorUnitario,dtVencimento,nomeFabricante,tipoInsumo)
+{
+    this->dosagem = dosagem;
+    this->administracao = administracao;
+    this->disponibilizacao = disponibilizacao;
+}
 
 Medicamento::Medicamento()
     : Insumo()
@@ -67,9 +94,15 @@ private:
     int tipo;
     string descricao;
 public:
+    EPI(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, int tipoInsumo,int tipo, string descricao);
     EPI();
     ~EPI();
 };
+
+EPI::EPI(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, int tipoInsumo,int tipo, string descricao)
+    : Insumo(nome,quantidade,valorUnitario,dtVencimento,nomeFabricante,tipoInsumo)
+{
+}
 
 EPI::EPI()
     : Insumo()
@@ -113,8 +146,31 @@ Local::~Local(){
 
 int main(){
 
-    //Local lock;
-    cout << "Ola cara " << endl;
+    Local loc;
+
+    string nome;
+    int quantidade;
+    int valorUnitario;
+    string dtVencimento;
+    string nomeFabricante;
+    int tipoInsumo;
+
+    int tipo;
+    int quantDoses;
+    int intervalo;
+
+    string dosagem;
+    string administracao;
+    string disponibilizacao;
+
+    int tipo;
+    string descricao;
+
+    getline(cin, nome);
+    cin >> quantidade;
+
+
+
 
     return 0;
 }
