@@ -10,18 +10,18 @@ protected:
     int valorUnitario;
     string dtVencimento;
     string nomeFabricante;
-    int tipoInsumo;
+    string tipoInsumo;
 public:
     Insumo();
-    Insumo(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, int tipoInsumo);
-    ~Insumo();
+    Insumo(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, string tipoInsumo);
+    virtual ~Insumo();
 };
 
 Insumo::Insumo()
 {
 }
 
-Insumo::Insumo(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, int tipoInsumo){
+Insumo::Insumo(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, string tipoInsumo){
     this->nome = nome;
     this->quantidade = quantidade;
     this->valorUnitario = valorUnitario;
@@ -36,16 +36,16 @@ Insumo::~Insumo(){
 
 class Vacina : public Insumo{
 private:
-    int tipo;
+    string tipo;
     int quantDoses;
     int intervalo;
 public:
-    Vacina(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, int tipoInsumo,int tipo, int quantDoses, int intervalo);
+    Vacina(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, string tipoInsumo,string tipo, int quantDoses, int intervalo);
     Vacina();
-    ~Vacina();
+    virtual ~Vacina();
 };
 
-Vacina::Vacina(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, int tipoInsumo,int tipo, int quantDoses, int intervalo)
+Vacina::Vacina(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, string tipoInsumo,string tipo, int quantDoses, int intervalo)
     : Insumo(nome,quantidade,valorUnitario,dtVencimento,nomeFabricante,tipoInsumo)
 {
     this->tipo = tipo;
@@ -54,7 +54,7 @@ Vacina::Vacina(string nome,int quantidade, int valorUnitario, string dtVenciment
 }
 
 Vacina::Vacina()
-    : Insumo(){  
+    : Insumo(){
 }
 
 Vacina::~Vacina(){
@@ -67,12 +67,12 @@ private:
     string administracao;
     string disponibilizacao;
 public:
-    Medicamento(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, int tipoInsumo,string dosagem, string administracao, string disponibilizacao);
+    Medicamento(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, string tipoInsumo,string dosagem, string administracao, string disponibilizacao);
     Medicamento();
-    ~Medicamento();
+    virtual ~Medicamento();
 };
 
-Medicamento::Medicamento(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, int tipoInsumo,string dosagem, string administracao, string disponibilizacao)
+Medicamento::Medicamento(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, string tipoInsumo,string dosagem, string administracao, string disponibilizacao)
     : Insumo(nome,quantidade,valorUnitario,dtVencimento,nomeFabricante,tipoInsumo)
 {
     this->dosagem = dosagem;
@@ -91,15 +91,15 @@ Medicamento::~Medicamento(){
 
 class EPI : public Insumo{
 private:
-    int tipo;
+    string tipo;
     string descricao;
 public:
-    EPI(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, int tipoInsumo,int tipo, string descricao);
+    EPI(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, string tipoInsumo,string tipo, string descricao);
     EPI();
-    ~EPI();
+    virtual ~EPI();
 };
 
-EPI::EPI(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, int tipoInsumo,int tipo, string descricao)
+EPI::EPI(string nome,int quantidade, int valorUnitario, string dtVencimento, string nomeFabricante, string tipoInsumo,string tipo, string descricao)
     : Insumo(nome,quantidade,valorUnitario,dtVencimento,nomeFabricante,tipoInsumo)
 {
 }
@@ -140,8 +140,11 @@ Local::~Local(){
     insumoArr[0]->~Insumo();
     insumoArr[1]->~Insumo();
     insumoArr[2]->~Insumo();
-    insumosVec.clear();
-    //for(auto it=insumosVec.begin(); it != insumosVec.end(); it++){
+   
+    for (auto&& it : insumosVec){
+        delete it;
+    }
+   
 }
 
 int main(){
@@ -153,9 +156,9 @@ int main(){
     int valorUnitario;
     string dtVencimento;
     string nomeFabricante;
-    int tipoInsumo;
+    string tipoInsumo;
 
-    int tipo;
+    string tipo;
     int quantDoses;
     int intervalo;
 
@@ -163,19 +166,63 @@ int main(){
     string administracao;
     string disponibilizacao;
 
-    int tipo;
+    string tipo12;
     string descricao;
 
-    getline(cin, nome);
-    cin >> quantidade;
-    cin >> valorUnitario;
+    getline(cin, nome);//Coronavac
+    cin >> quantidade;//10000
+    cin >> valorUnitario;//10
     cin.ignore();
-    getline(cin, dtVencimento);
-    getline(cin, nomeFabricante);
-    cin >> tipoInsumo;
-    
+    getline(cin, dtVencimento);//11/12/2021
+    getline(cin, nomeFabricante);//Sinovac
+    getline(cin, tipoInsumo);//MS
+    getline(cin, tipo);//Virus inativo
+    cin >> quantDoses;//2
+    cin >> intervalo;//30
 
+    //Vacina vacina = Vacina(nome, quantidade, valorUnitario, dtVencimento, nomeFabricante, tipoInsumo, tipo, quantDoses, intervalo);
+    loc.addInsumoVec(new Vacina(nome, quantidade, valorUnitario, dtVencimento, nomeFabricante, tipoInsumo, tipo, quantDoses, intervalo));
+    loc.addInsumoArr(new Vacina(nome, quantidade, valorUnitario, dtVencimento, nomeFabricante, tipoInsumo, tipo, quantDoses, intervalo), 0);
 
+    cin.ignore();
+    getline(cin, nome);//Tyleno
+    cin >> quantidade;//500
+    cin >> valorUnitario;//5
+    cin.ignore();
+    getline(cin, dtVencimento);//04/05/2022
+    getline(cin, nomeFabricante);//Johnson
+    getline(cin, tipoInsumo);//MS
+    getline(cin, dosagem);//1 compromido
+    getline(cin, administracao);//2 vezes por dia
+    getline(cin, disponibilizacao);//capsulas
+
+    //Medicamento medicamento = Medicamento(nome, quantidade, valorUnitario, dtVencimento, nomeFabricante, tipoInsumo, dosagem, administracao, disponibilizacao);
+    loc.addInsumoVec(new Medicamento(nome, quantidade, valorUnitario, dtVencimento, nomeFabricante, tipoInsumo, dosagem, administracao, disponibilizacao));
+    loc.addInsumoArr(new Medicamento(nome, quantidade, valorUnitario, dtVencimento, nomeFabricante, tipoInsumo, dosagem, administracao, disponibilizacao), 1);
+
+    //cin.ignore();
+    getline(cin, nome);//Oculos de Proteção
+    cin >> quantidade;//100
+    cin >> valorUnitario;//10
+    cin.ignore();
+    getline(cin, dtVencimento);//Inderteminada
+    getline(cin, nomeFabricante);//3M
+    getline(cin, tipoInsumo);//MS
+    getline(cin, tipo12);
+    getline(cin, descricao);
+
+    //EPI epi = EPI(nome, quantidade, valorUnitario, dtVencimento, nomeFabricante, tipoInsumo, tipo12, descricao);
+    loc.addInsumoVec(new EPI(nome, quantidade, valorUnitario, dtVencimento, nomeFabricante, tipoInsumo, tipo12, descricao));
+    loc.addInsumoArr(new EPI(nome, quantidade, valorUnitario, dtVencimento, nomeFabricante, tipoInsumo, tipo12, descricao), 2);
 
     return 0;
 }
+/*
+Deletando EPI
+Deletando Insumos
+Deletando Medicamento
+Deletando Insumos
+Deletando Vacina
+Deletando Insumos
+Deletando Local
+*/
