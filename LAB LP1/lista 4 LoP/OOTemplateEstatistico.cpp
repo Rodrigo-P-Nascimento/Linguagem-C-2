@@ -13,7 +13,7 @@ public:
         int index;
 
         for(int i = 0; i < vec.size(); i++){
-            if(maior < vec[i].getTotal()){
+            if(maior <= vec[i].getTotal()){
                 maior = vec[i].getTotal();
                 index = i;
             }
@@ -122,20 +122,17 @@ int main(){
     Estatistico<Pedido> ESped;
     Estatistico<Livro> ESlib;
 
-    cout << lib[0].getNome() <<" - " << lib[1].getNome() <<" - " << lib[2].getNome() <<" - " << lib[3].getNome() <<" - " << endl;
-
-    
     int index = ESped.indexOfMaior(ped);
     cout << "Maior: " << ped[index].ToString() << endl;
     index = ESped.indexOfMenor(ped);
     cout << "Menor: " << ped[index].ToString() << endl;
-    cout << "Media: " << ESped.media(ped) << endl;
+    cout << "Média: " << ESped.media(ped) << endl;
     
     index = ESlib.indexOfMaior(lib);
     cout << "Maior: " << lib[index].ToString() << endl;
     index = ESlib.indexOfMenor(lib);
     cout << "Menor: " << lib[index].ToString() << endl;
-    cout << "Media: " << ESlib.media(lib) << endl;
+    cout << "Média: " << ESlib.media(lib) << endl;
     
     return 0;
 }
