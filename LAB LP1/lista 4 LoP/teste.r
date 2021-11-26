@@ -1,18 +1,19 @@
 library(matlib)
 
-x <- seq(-1,1,by=0.2)
-y <- c(0.8517503, 1.8462013, 5.4867843, −4.7784345,-1.7507537, −0.8230178, −0.7315276, −0.4738893, −0.4134608, −0.3333150, −0.2770552)#dados
+x <- seq(-1, 1, by=0.2)#dados
+y <- c(5.1213515, 3.9260492, 3.3917448, 2.4160260, 2.1235133, 1.2816421, 1.1253662, 0.8549460, 0.6753195, 0.7752061, 0.9619687)#dados
 
-#Regressão linear
-a1 <- (mean(x*(1/y)) - mean(x)*mean((1/y)))/(mean(x^2) - mean(x)^2)#coeficiente angular MMQ
-b1 <- (mean((1/y))*mean(x^2) - mean(x)*mean(x*(1/y)))/(mean(x^2) - mean(x)^2)#coeficiente linear MMQ
+#Sistema de equações normais
+N <- length(x)#N será o numero de dados 
+A <- matrix(c(N,sum(x), sum(x^2), sum(x), sum(x^2), sum(x^3), sum(x^2), sum(x^3), sum(x^4)), 3,3)#matriz
+b <- c(sum(y), sum(x*y), sum(x^2*y))#vetor
+c <- solve(A, b)#solução
 
 #Grafico
-plot(x,y,pch=19,cex = 0.7)
-curve (1/(a1*x + b1) ,-1,1,type = "l",col = "blue",add = T)#grafico da curva hiperbolica
-legend(x = "topright", legend = "Regressão hiperbólica", col = "blue", lty = 1, lwd = 1, bty = "n") 
+plot(x, y, pch = 19, cex = 0.7)
+curve(c[3]*x^2 + c[2]*x + c[1], -1, 1, type = "l", col = "blue", add = T)#grafico dados
+legend(x = "topright", legend = "Regressão quadrática", col = "blue", lty = 1, lwd = 1, bty = "n")#legenda
 
-#Soma dos resíduos quadráticos
-res2 <- sum(((1/(a1*x + b1))-y)^2)
+#Soma dos resíduos quadráticas
+res2 <- sum((c[3]*x^2 + c[2]*x + c[1] - y)^2)
 res2
-
