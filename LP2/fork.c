@@ -5,20 +5,24 @@
 int main(void){
 
     printf("ID do processo pai: %d\n", getpid());
-    printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    printf("\n\n");
 
     int rf = fork();
 
     if(rf == 0){
-        printf("SOU O PROCESSO CLONADO: %d.\n", getpid());
-        printf("FORK\n");
-        fork();
+        printf("Clone: %d\n", getpid());
+
+        int fk = fork();
+
+        if(fk == 0){
+            printf("Clone filho: %d\n", getpid());
+        }else{
+            printf("Clone pai: %d\n", getpid());
+        }
+        
     }else{
-        printf("SOU O PROCESSO ORIGINAL: %d.\n", getpid());
-        printf("Pai falando aqui bro!\n");
+        printf("Processo pai de PID: %d.\n", getpid());
+        printf("Fim do processo pai.\n");
     }
-
-    printf("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\nFIM do processo\n");
-
     return 0;
 }
