@@ -10,7 +10,7 @@
                 "UNICODE",
                 "_UNICODE"
             ],
-            "compilerPath": "user\\bin\\gcc",
+            "compilerPath": "//user//bin//gcc",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "${default}"
