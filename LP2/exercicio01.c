@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <pthread.h>
 
-#define
-
-
 double global;
 
 
@@ -17,8 +14,6 @@ void* f(void* p){
     //
 
 }
-
-
 
 int main(void){
 
