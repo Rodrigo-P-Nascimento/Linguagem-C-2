@@ -3,45 +3,45 @@
 
     ---------------------------- Iteradores ------------------------------
 
-    begin > Retorne o iterador para o início (função de membro público)
-    end > Retorne o iterador para o final (função de membro público)
-    rbegin > Retorne o iterador reverso para o início reverso (função de membro público)
-    rend > Retorne o iterador reverso para a extremidade reversa (função de membro público)
-    cbegin > Retorne const_iterator para o início (função de membro público)
-    cend  > Retorne const_iterator para o final (função de membro público)
-    crbegin  > Retorne const_reverse_iterator para inverter o início (função de membro público)
-    crend  > Retorne const_reverse_iterator para reverso (função de membro público)
+    begin > Retorne o iterador para o inï¿½cio (funï¿½ï¿½o de membro pï¿½blico)
+    end > Retorne o iterador para o final (funï¿½ï¿½o de membro pï¿½blico)
+    rbegin > Retorne o iterador reverso para o inï¿½cio reverso (funï¿½ï¿½o de membro pï¿½blico)
+    rend > Retorne o iterador reverso para a extremidade reversa (funï¿½ï¿½o de membro pï¿½blico)
+    cbegin > Retorne const_iterator para o inï¿½cio (funï¿½ï¿½o de membro pï¿½blico)
+    cend  > Retorne const_iterator para o final (funï¿½ï¿½o de membro pï¿½blico)
+    crbegin  > Retorne const_reverse_iterator para inverter o inï¿½cio (funï¿½ï¿½o de membro pï¿½blico)
+    crend  > Retorne const_reverse_iterator para reverso (funï¿½ï¿½o de membro pï¿½blico)
 
     ---------------------------- Capacidade ------------------------------
 
-    size > Retorne o comprimento da string (função de membro público)
-    max_size > Retorna o tamanho máximo da string (função de membro público)
-    resize > Redimensionar string (função de membro público)
-    empty > Teste se a string está vazia (função de membro público)
-    shrink_to_fit > Reduzir para caber (função de membro público)
+    size > Retorne o comprimento da string (funï¿½ï¿½o de membro pï¿½blico)
+    max_size > Retorna o tamanho mï¿½ximo da string (funï¿½ï¿½o de membro pï¿½blico)
+    resize > Redimensionar string (funï¿½ï¿½o de membro pï¿½blico)
+    empty > Teste se a string estï¿½ vazia (funï¿½ï¿½o de membro pï¿½blico)
+    shrink_to_fit > Reduzir para caber (funï¿½ï¿½o de membro pï¿½blico)
 
     ---------------------------- Acesso ao elemento ------------------------------
 
-    operador[] > Obter caractere de string (função de membro público)
-    at > Obtenha o caractere na string (função de membro público)
-    back  > Acessar o último caractere (função de membro público)
-    front  > Acesse o primeiro caractere (função de membro público)
+    operador[] > Obter caractere de string (funï¿½ï¿½o de membro pï¿½blico)
+    at > Obtenha o caractere na string (funï¿½ï¿½o de membro pï¿½blico)
+    back  > Acessar o ï¿½ltimo caractere (funï¿½ï¿½o de membro pï¿½blico)
+    front  > Acesse o primeiro caractere (funï¿½ï¿½o de membro pï¿½blico)
 
     ---------------------------- Modificadores ------------------------------
 
-    assign > Atribuir conteúdo de contêiner (função de membro público)
-    push_back > Adicionar elemento no final (função de membro público)
-    push_front > Inserir elemento no início (função de membro público)
-    pop_back > Excluir o último elemento (função de membro público)
-    pop_front > Exclua o primeiro elemento (função de membro público)
-    insert > Inserir elementos (função de membro público)
-    erase > Apagar elementos (função de membro público)
-    swap > Troca o conteúdo de dois recipientes deque (modelo de função)
+    assign > Atribuir conteï¿½do de contï¿½iner (funï¿½ï¿½o de membro pï¿½blico)
+    push_back > Adicionar elemento no final (funï¿½ï¿½o de membro pï¿½blico)
+    push_front > Inserir elemento no inï¿½cio (funï¿½ï¿½o de membro pï¿½blico)
+    pop_back > Excluir o ï¿½ltimo elemento (funï¿½ï¿½o de membro pï¿½blico)
+    pop_front > Exclua o primeiro elemento (funï¿½ï¿½o de membro pï¿½blico)
+    insert > Inserir elementos (funï¿½ï¿½o de membro pï¿½blico)
+    erase > Apagar elementos (funï¿½ï¿½o de membro pï¿½blico)
+    swap > Troca o conteï¿½do de dois recipientes deque (modelo de funï¿½ï¿½o)
     clear > Apaga o conteudo (public member function )
-    emplace  > Construir e inserir elemento (função de membro público)
-    emplace_front > Construir e inserir elemento no início (função de membro público)
-    emplace_back > Construir e inserir elemento no final (função de membro público)
+    emplace  > Construir e inserir elemento (funï¿½ï¿½o de membro pï¿½blico)
+    emplace_front > Construir e inserir elemento no inï¿½cio (funï¿½ï¿½o de membro pï¿½blico)
+    emplace_back > Construir e inserir elemento no final (funï¿½ï¿½o de membro pï¿½blico)
 
     ====================================================================
 
-
+*/
