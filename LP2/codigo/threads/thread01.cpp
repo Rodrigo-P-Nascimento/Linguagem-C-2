@@ -8,7 +8,7 @@ using std::thread;
 
 #define QTD 5
 
-char ret[QTD];
+char ret[QTDTHREADS];
 
 int funcao_thread(int id, char b) {
 	cout << "[thread " << id << "] start" << endl;
@@ -24,15 +24,15 @@ int funcao_thread(int id, char b) {
 }
 
 int main(void) {
-	thread* ths[QTD];
+	thread* ths[QTDTHREADS];
 
 	cout << "[main] start" << endl;
 
-	for (int i = 0; i < QTD; i++)
+	for (int i = 0; i < QTDTHREADS; i++)
 		ths[i] = new thread(funcao_thread,
 			       	i, 'A' + i);
 
-	for (int i = 0; i < QTD; i++)
+	for (int i = 0; i < QTDTHREADS; i++)
 		ths[i]->join();
 
 	cout << "[main] end" << endl;

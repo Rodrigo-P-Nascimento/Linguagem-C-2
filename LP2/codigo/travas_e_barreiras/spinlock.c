@@ -15,6 +15,7 @@ void *f_add_global (void *p)
   while (count < QTD_SOMA)
     {
       while (__atomic_test_and_set (&lock, 0));
+      //Apartir do momento que alguem passa desse while a lock já fica 1, e ao final da seção critica é liberado a lock
       //__sync_test_and_set(&lock, 0)
       //__atomic_flag_test_and_set(&lock)
       //atomic_flag_test_and_set_explict(&lock, 0)

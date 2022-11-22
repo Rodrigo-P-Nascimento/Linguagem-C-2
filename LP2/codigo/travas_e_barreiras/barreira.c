@@ -17,7 +17,7 @@ void* barreira(void*p){
         printf("[%ld] vou realizar tarefa...\n", idx);
         tarefa(idx);
         atomic_fetch_add(&count,1);
-        while ((count % QTD_TH) != 0);
+        while ((count % QTD_TH) != 0);//Enquanto todas as thread não fizerem as suas tarefas, todas as que já terminatam ficam presas aqui
         printf("[%ld] realizou tarefa (%d).\n", idx, count);
     }
 }
