@@ -51,6 +51,7 @@
         "typeinfo": "cpp",
         "random": "c",
         "numeric": "c",
-        "thread": "c"
+        "thread": "c",
+        "stdatomic.h": "c"
     }
 }
