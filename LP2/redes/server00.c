@@ -45,7 +45,7 @@ int main(){
         inet_ntop(AF_INET, &(clientQ.sin_addr), ip_client, INET_ADDRSTRLEN);
         printf("[ %s ]\n", ip_client);
 
-        if(strncmp(buffer, "EXIT"){
+        if(strncmp(buffer, "EXIT", 4) == 0){
             ativo = 0;
         }
     }
