@@ -38,14 +38,14 @@ int main(){
         printf("Alguem conectou!\n");
 
         /* Indentificando cliente */
-        char ip_client[INET_ADDRSTRLEN];
-        inet_ntop(AF_INET, &(clientQ.sin_addr), ip_client, INET_ADDRSTRLEN);
-        printf("IP: [ %s ]\n", ip_client);
+        //char ip_client[INET_ADDRSTRLEN];
+        //inet_ntop(AF_INET, &(clientQ.sin_addr), ip_client, INET_ADDRSTRLEN);
+        //printf("IP: [ %s ]\n", ip_client);
 
         /* Recebendo dados */
-        recv(connection_fd, buffer, 100, 0);//100 é o numero de bytes que podemos receber, e 0 é flags
+        recv(connection_fd, buffer, 10, 0);//100 é o numero de bytes que podemos receber, e 0 é flags
         //recv retorna o numero de bytes recevebidos, quando for 0 ele recebeu nada
-        printf("Enviou isso: %s ", buffer);
+        printf("Enviou isso: %s \n", buffer);
 
         if(strncmp(buffer, "EXIT", 4) == 0){
             ativo = 0;
