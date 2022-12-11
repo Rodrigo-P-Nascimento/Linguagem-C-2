@@ -4,12 +4,13 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <string.h>
 
 #define TAM_STRING 100
 
 int main(){
 
-    int socket_fd;
+    int socket_fd, continua = 1;
     char msg[TAM_STRING];
     struct sockaddr_in target;
 
@@ -29,9 +30,16 @@ int main(){
         printf("Conectado ao server!\n");
     }
 
-    printf("Digite uma mensagem para enviar ao servidor: ");
-    fgets(msg, TAM_STRING, stdin);
-    send(socket_fd, msg, TAM_STRING, 0);
+    while(continua){
+        printf("Digite uma mensagem para enviar ao servidor: ");
+        fgets(msg, TAM_STRING, stdin);
+        send(socket_fd, msg, TAM_STRING, 0);
+
+        if(strncmp(msg, "EXIT", 4) == 0){
+            continua = 0;
+        }
+    }
+    printf("Saindo do server!");
     close(socket_fd);
 
     return 0;
