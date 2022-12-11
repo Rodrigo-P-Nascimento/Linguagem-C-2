@@ -34,6 +34,7 @@ int main(){
         printf("Digite uma mensagem para enviar ao servidor: ");
         fgets(msg, TAM_STRING, stdin);
         send(socket_fd, msg, TAM_STRING, 0);
+        printf("Envie isso pra o server: [%s]!\n", msg);
 
         if(strncmp(msg, "EXIT", 4) == 0){
             continua = 0;
