@@ -12,7 +12,20 @@
 #define QTD_THREADS 5
 
 void* clienteFunc(void* p){
+    int client_sock = (int)p;
+    char recv_buffer[32];
 
+    bzero(recv_buffer, 32);
+
+    while(1){
+        int r_ret = recv(client_sock, recv_buffer, sizeof(recv_buffer), 0);
+
+        printf("Recebi do cliente(%d): %s\n", client_sock, recv_buffer);
+
+        printf("Ecoando mensagem...\n");
+
+        int s_ret = send(client_sock, recv_buffer, sizeof(recv_buffer), 0);
+    }
 }
 
 
@@ -23,8 +36,7 @@ int main(){
     int contador = 0;
     struct sockaddr_in servidor, cliente[QTD_THREADS];
     socklen_t tam_cliente = (socklen_t)sizeof(cliente);
-    char buffer_entrada[50];
-
+   
     pthread_t threadCliente[QTD_THREADS];
 
     //iniciar o socket

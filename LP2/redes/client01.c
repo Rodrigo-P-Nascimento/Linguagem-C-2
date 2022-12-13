@@ -14,8 +14,8 @@ int main(){
     printf("Socket criado\n");
 
     target.sin_family = AF_INET;
-    target.sin_port = htons(3001);
-    inet_aton("127.0.0.1", &(target.sin_addr));
+    target.sin_port = htons(9000);
+    servidor.sin_addr.s_addr = INADDR_ANY;
 
     printf("Tentando conectar\n");
 
@@ -31,8 +31,8 @@ int main(){
     printf("Escrevi mensagem de ping\n");
 
     /* Recebendo resposta do server conectado */
-    char reply[10];
-    recv(socket_fd, reply, 10, 0);
+    char reply[32];
+    recv(socket_fd, reply, 32, 0);
     printf("Resposta: %s \n", reply);
 
     close(socket_fd);
