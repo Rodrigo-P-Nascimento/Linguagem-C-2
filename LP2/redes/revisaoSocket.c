@@ -27,6 +27,8 @@ void* clienteFunc(void* p){
 
         int s_ret = send(client_sock, recv_buffer, sizeof(recv_buffer), 0);
     }
+
+    puts("Saindo do server!");
 }
 
 
@@ -73,7 +75,7 @@ int main(){
             puts("Erro ao tentar conectar!");
             exit(0);
         }else{
-            puts("Alguem se conectou!");
+            printf("Alguem se conectou[%d]\n", contador);
         }
 
         pthread_create(&threadCliente[contador], 0, clienteFunc, (void*)cliente_fd[contador]);

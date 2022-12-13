@@ -12,6 +12,7 @@ int main(){
 
     int socket_fd, continua = 1;
     char msg[TAM_STRING];
+    char buffer[TAM_STRING];
     struct sockaddr_in target;
 
     socket_fd = socket(AF_INET, SOCK_STREAM, 0);
@@ -19,7 +20,7 @@ int main(){
 
     target.sin_family = AF_INET;
     target.sin_port = htons(9000);
-    inet_aton("127.0.0.1", &(target.sin_addr));
+    target.sin_addr.s_addr = INADDR_ANY;
 
     printf("Tentando conectar\n");
 
@@ -38,6 +39,9 @@ int main(){
 
         if(strncmp(msg, "EXIT", 4) == 0){
             continua = 0;
+        }else{
+            recv(socket_fd, buffer, 100, 0);
+            printf("Recebi isso do server: %s \n", buffer);
         }
     }while(continua);
 
