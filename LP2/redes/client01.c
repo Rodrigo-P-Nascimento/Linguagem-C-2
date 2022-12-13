@@ -15,7 +15,7 @@ int main(){
 
     target.sin_family = AF_INET;
     target.sin_port = htons(9000);
-    servidor.sin_addr.s_addr = INADDR_ANY;
+    target.sin_addr.s_addr = INADDR_ANY;
 
     printf("Tentando conectar\n");
 

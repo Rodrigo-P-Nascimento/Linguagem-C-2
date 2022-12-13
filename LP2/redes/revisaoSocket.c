@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -66,9 +67,9 @@ int main(){
     puts("Estou esperando conexoes!");
 
     while(1){
-        cliente_fd[contador] = accept(servidor, (struct sockaddr *)&cliente[contador], &tam_cliente );
+        cliente_fd[contador] = accept(sock_fd, (struct sockaddr *)&cliente[contador], &tam_cliente );
 
-        if(cliente[contador] == -1){
+        if(cliente_fd[contador] == -1){
             puts("Erro ao tentar conectar!");
             exit(0);
         }else{
