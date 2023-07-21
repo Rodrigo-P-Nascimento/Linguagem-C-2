@@ -1,2 +1,2 @@
-# Repositório referente a estudos e a pequenos projetos feitos na linguagem C++. 
-Sendo permitido a utilização dos códigos de forma livre e gratuita.
+# Repository for C++ studies and small projects
+Feel free to use the codes for any purpose, free of charge.
